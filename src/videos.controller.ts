@@ -15,10 +15,12 @@ interface queryParams {
   name: string;
   age: number;
 }
-// interface videosParams {
-//   id: number;
-//   name: string;
-// }
+/*
+interface videosParams {
+  id: number;
+  name: string;
+}
+*/
 
 @Controller('/users')
 export class VideosController {
