@@ -1,11 +1,26 @@
-import { Controller, Get, Post, Put, Delete, Patch, Req } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Patch,
+  Req,
+  HttpCode,
+  HttpStatus,
+  Res,
+  Header,
+} from '@nestjs/common';
 import { of } from 'rxjs';
-import { Request } from 'express';
+import { Request, Response } from 'express';
 
 @Controller('/users')
 export class UsersController {
-  @Put('/profile')
-  getProfile(@Req() req: Request) {
+  @Get('/profile')
+  @Header('Cache-Control', 'none')
+  @Header('X-Name', 'Sazzad')
+  getProfile(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
+    res.status(201);
     return of({
       hello: 'World',
     });
