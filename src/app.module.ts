@@ -8,6 +8,8 @@ import { VideosController } from './videos.controller';
 import { UsersStore } from './stores/users.store';
 import { UsersStoreController } from './usersStore.controller';
 import { Store } from './stores/store';
+import { UsersTwoController } from './usersTwo.controller';
+import { UsersService } from './users.service';
 
 @Module({
   controllers: [
@@ -18,7 +20,12 @@ import { Store } from './stores/store';
     RoutingHttpController,
     IpController,
     UsersStoreController,
+    UsersTwoController,
   ],
-  providers: [UsersStore, { provide: Store, useExisting: UsersStore }],
+  providers: [
+    UsersStore,
+    { provide: Store, useExisting: UsersStore },
+    UsersService,
+  ],
 })
 export class AppModule {}
