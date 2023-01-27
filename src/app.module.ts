@@ -14,6 +14,9 @@ import { MoonKnightController } from './moonKnight.controller';
 import { Config } from './config';
 import { FactoryController } from './factoryProvider.controller';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
+import { UsersModule } from './users/users.module';
+import { JobsModule } from './jobs/jobs.module';
+import { EmployersModule } from './employers/employers.module';
 
 const IS_DEV_MODE = true;
 @Injectable()
@@ -26,6 +29,7 @@ class EnvConfig {
 }
 
 @Module({
+  imports: [UsersModule, JobsModule, EmployersModule],
   controllers: [
     UsersController,
     AlbumsController,
